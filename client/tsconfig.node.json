@@ -1,0 +1,4 @@
+{
+  "comment": "tsconfig.node retained for editors but project migrated to JavaScript. Delete if you want to remove TypeScript entirely.",
+  "include": ["vite.config.js"]
+}

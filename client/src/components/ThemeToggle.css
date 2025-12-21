@@ -1,0 +1,31 @@
+/* 48px touch target and visible label for readability */
+.header-btn--theme { min-width: 48px; min-height: 48px; padding: 0.35rem 0.6rem; border-radius: 0.8rem; display:inline-flex; align-items:center; justify-content:center; background: var(--surface); border: 1px solid rgba(255,255,255,0.04); }
+
+/* Icon wrapper sized to be clearly visible */
+.theme-icon-wrap { position: relative; width: 1.6rem; height: 1.6rem; display:inline-block; margin-right: .5rem; }
+.theme-icon { position: absolute; inset: 0; width: 1.6rem; height: 1.6rem; transition: opacity .32s ease, transform .42s cubic-bezier(.2,.9,.3,1); color: var(--accent); }
+
+/* Label legible and high-contrast */
+.theme-label { display:inline-block; font-size: 1rem; font-weight:700; color: var(--text); vertical-align: middle; margin-left: 0.25rem; }
+
+/* Visible icon per theme */
+.header-btn--theme.is-light .icon-moon { opacity: 1; transform: rotate(0) scale(1); }
+.header-btn--theme.is-light .icon-sun { opacity: 0; transform: rotate(-20deg) scale(.95); }
+
+.header-btn--theme.is-dark .icon-sun { opacity: 1; transform: rotate(0) scale(1); }
+.header-btn--theme.is-dark .icon-moon { opacity: 0; transform: rotate(20deg) scale(.95); }
+
+/* Animation during toggle */
+.header-btn--theme.is-animating .icon-sun,
+.header-btn--theme.is-animating .icon-moon {
+  animation: toggle-spin .48s cubic-bezier(.2,.9,.3,1) both;
+}
+
+@keyframes toggle-spin {
+  0% { transform: rotate(0deg) scale(1); opacity: 0.6; }
+  50% { transform: rotate(200deg) scale(1.18); opacity: 0.9; }
+  100% { transform: rotate(360deg) scale(1); opacity: 1; }
+}
+
+/* Responsive: hide label on small screens but keep a large touch target for accessibility */
+@media (max-width:640px) { .theme-label { display:none; } }

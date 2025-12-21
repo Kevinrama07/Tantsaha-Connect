@@ -1,0 +1,103 @@
+.app-header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  color: var(--text);
+  padding-top: calc(env(safe-area-inset-top, 0) + clamp(.5rem, 1.8vw, .95rem));
+  padding-left: clamp(.5rem, 2vw, 1rem);
+  padding-right: clamp(.5rem, 2vw, 1rem);
+  padding-bottom: clamp(.35rem, 1vw, .6rem);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0;
+  z-index: 9999;
+  min-height: var(--header-height);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-left: clamp(.5rem, 2vw, 1rem);
+  padding-right: clamp(.5rem, 2vw, 1rem);
+}
+
+@media (min-width:1024px) { .header-inner { padding-left: 0; padding-right: 0; } }
+
+.header-btn {
+  padding: 0.45rem;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 0.65rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.16s ease, transform 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header-btn:hover { background: rgba(100,108,255,0.06); transform: translateY(-2px); }
+.header-btn:active { transform: translateY(0); }
+
+.header-title {
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  font-weight: 800;
+  flex: 1 1 auto;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0; /* needed so flex items can shrink properly */
+}
+
+/* Ensure theme toggle is visible and not pushed offscreen; title truncates if needed */
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap: .5rem;
+  flex-shrink: 0;
+}
+.header-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--accent);
+}
+
+.header-btn--theme {
+  padding: 0.35rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  transition: transform 0.12s ease, background-color 0.12s ease;
+  background: transparent;
+  border: none;
+}
+
+.header-btn--theme:hover { background: rgba(100,108,255,0.06); transform: translateY(-2px); }
+.header-btn--theme .header-icon { width: 1.3rem; height: 1.3rem; color: var(--accent); }
+
+/* Small screens: allow header content to wrap vertically if needed while keeping controls visible */
+@media (max-width:520px) {
+  .header-inner { align-items: flex-start; gap: 0.5rem; }
+  .header-title { white-space: normal; overflow: visible; line-height: 1.05; }
+  .header-actions { width: 100%; display:flex; justify-content: flex-end; margin-top: .25rem; }
+  .header-btn--theme { width: 48px; height: 48px; }
+}
+
+/* Large screens: a touch more breathing room */
+@media (min-width:1024px) {
+  .app-header { padding: 1rem 0; }
+  .header-title { font-size: 1.35rem; }
+}

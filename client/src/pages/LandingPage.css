@@ -1,0 +1,136 @@
+.landing-container {
+  min-height: 100vh;
+  /* Earthy, agricultural-friendly background: (now theme-aware)
+     - uses CSS variables so the background follows the selected theme
+     - subtle repeating pattern for texture (pure CSS — no large images)
+     - small, lightweight SVG accent positioned to the corner (low opacity)
+     Rationale: culturally relevant colors + good contrast for cards; no heavy assets for low-bandwidth contexts. */
+  /* FIXED TEXT COLORS: keep landing text colour constant across theme changes */
+  color: #0b1220; /* fixed primary text color */
+  --landing-muted: #5f6b78; /* fixed muted text color */
+  background:
+    radial-gradient(900px 400px at 10% 10%, rgba(255,255,255,0.06), rgba(255,255,255,0) 35%),
+    var(--landing-bg, linear-gradient(180deg, var(--bg), rgba(0,0,0,0) 50%)),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 1px, rgba(0,0,0,0) 1px 24px);
+  display: flex;
+  border-radius: 0.75rem;
+  flex-direction: column;
+  position: relative;
+  background-attachment: fixed;
+}
+
+/* Dark theme override for landing text to maintain contrast */
+html[data-theme="dark"] .landing-container {
+  color: #e6eef3; /* light text for dark background */
+  --landing-muted: #9aa4b2; /* slightly lighter muted color */
+}
+
+/* Decorative low-weight SVG accent — positioned behind content */
+.landing-hero {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.12;
+  color: var(--accent); /* uses current theme accent */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><g fill='currentColor'><path d='M20 160 C40 120 80 80 120 120 C160 160 180 140 180 120 L180 200 L0 200 Z'/></g></svg>");
+  background-repeat: no-repeat;
+  background-position: right 6% bottom 6%;
+  background-size: 36%;
+}
+
+/* Ensure content sits above decorative hero */
+.landing-header,
+.landing-content { position: relative; z-index: 1; }
+
+/* On small screens stack actions under the title */
+@media (max-width:520px) {
+  .landing-header-top { align-items:flex-start; }
+  .landing-header-actions { width:100%; justify-content:flex-end; margin-top:.5rem; }
+  .landing-header-content { width:100%; }
+}
+
+.landing-content { padding: 1.25rem; max-width: var(--container-width); margin: 0 auto;background-color: #00000000; }
+
+.landing-features { display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem; }
+.landing-feature { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)); border-radius: .85rem; box-shadow: 0 8px 20px rgba(2,6,23,0.35); padding: 1rem; display:flex; gap:1rem; align-items:center; }
+
+.landing-feature h3 { color: inherit; margin-bottom: 0.25rem; } 
+.landing-feature p { color: var(--landing-muted); } 
+
+.landing-buttons { display:flex; gap: .75rem; flex-direction:column; padding-bottom: 2rem; }
+.landing-btn { width:100%; border-radius: .75rem; padding: .9rem; font-weight:700; }
+.landing-btn-signup { background: var(--surface); color: var(--text); border: 1px solid rgba(255,255,255,0.04); }
+.landing-btn-login { background: linear-gradient(180deg, var(--accent), var(--accent-600)); color: white; }
+
+@media (min-width: 640px) {
+  .landing-features { flex-direction: row; }
+  .landing-buttons { flex-direction: row; }
+  .landing-btn { width: auto; flex:1; }
+}
+
+.landing-header-content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 15%;
+}
+
+.landing-header-content h1 {
+  font-weight: bold;
+  color: inherit;
+} 
+
+.landing-header-content svg {
+  width: clamp(1.8rem, 3vw, 2.5rem);
+  height: clamp(1.8rem, 3vw, 2.5rem);
+  color: var(--accent);
+}
+
+.landing-subtitle {
+  color: var(--landing-muted);
+  font-size: 1.125rem;
+  margin-top: .6rem;
+}
+
+.landing-content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.landing-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.landing-feature {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border-radius: 0.85rem;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.landing-feature-icon { width: 3rem; height: 3rem; flex-shrink: 0; }
+.landing-feature-icon.weather { color: #2563eb; }
+.landing-feature-icon.alert { color: #ea580c; }
+.landing-feature-icon.journal { color: var(--success); }
+.landing-feature-icon.advice { color: var(--accent); }
+
+.landing-feature h3 { font-weight: bold; color: inherit; margin-bottom: 0.25rem; }
+.landing-feature p { color: var(--landing-muted); font-size: 0.95rem; }
+
+.landing-buttons { display:flex; gap: .75rem; flex-direction:column; padding-bottom:2rem; }
+.landing-btn { width:100%; border-radius: .75rem; padding: 1rem; font-weight:800; font-size:1rem }
+.landing-btn-signup { background: linear-gradient(180deg, var(--success), var(--success-600)); color: white; border: none; }
+.landing-btn-signup:hover { filter: brightness(.97); transform: translateY(-1px); }
+.landing-btn-login { background: linear-gradient(180deg, var(--accent), var(--accent-600)); color: white; }
+
+.landing-footer { text-align:center; padding-bottom:2rem; }
+.landing-footer p { color: var(--landing-muted); font-size: .95rem; } 

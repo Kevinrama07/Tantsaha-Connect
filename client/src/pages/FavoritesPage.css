@@ -1,0 +1,5 @@
+.favorites-container { min-height:100vh; background: transparent; }
+.favorites-main { padding:1.25rem; max-width: var(--container-width); margin:0 auto; }
+.favorites-empty { color: var(--muted); }
+.favorites-list { list-style:none; padding:0; margin:0; }
+.favorites-item { padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); }

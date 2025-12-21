@@ -1,0 +1,3 @@
+.journal-container { min-height:100vh; background: transparent; }
+.journal-main { padding:1.25rem; max-width:var(--container-width); margin:0 auto; }
+.journal-main p { color:var(--muted); }

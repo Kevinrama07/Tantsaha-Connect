@@ -1,0 +1,24 @@
+.fav-btn {
+  border-radius: 0.6rem;
+  transition: transform .12s ease, background-color .12s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fav-sm { padding: 0.35rem; }
+.fav-md { padding: 0.55rem; }
+
+.fav-btn--active { background: linear-gradient(180deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03)); color: var(--danger); }
+.fav-btn--active:hover { transform: scale(1.06); }
+
+.fav-btn--inactive { background: rgba(255,255,255,0.02); color: var(--muted); }
+.fav-btn--inactive:hover { transform: scale(1.04); color: var(--text); }
+
+.fav-icon-sm { width: 1.15rem; height: 1.15rem; }
+.fav-icon-md { width: 1.45rem; height: 1.45rem; }
+
+.fav-fill { fill: currentColor; }

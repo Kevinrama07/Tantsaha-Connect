@@ -1,0 +1,4 @@
+.settings-container { min-height:100vh; background: transparent; }
+.settings-main { padding:1.25rem; max-width: var(--container-width); margin:0 auto; }
+.settings-logout-button { background: linear-gradient(180deg, var(--danger), #b91c1c); color:white; padding: .9rem 1rem; border-radius: .7rem; border:none; cursor:pointer; font-weight:700; min-width: 120px; min-height: var(--touch-target); }
+.settings-logout-button:hover { filter: brightness(.95); }

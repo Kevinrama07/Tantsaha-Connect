@@ -1,0 +1,6 @@
+.welcome-container { min-height:100vh; display:flex; align-items:center; justify-content:center; background: transparent; }
+.welcome-content { text-align:center; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02)); padding:1.25rem; border-radius: .85rem; box-shadow: 0 10px 30px rgba(2,6,23,0.35); }
+.welcome-content h2 { font-size:1.5rem; font-weight:700; }
+.welcome-content p { margin-top: .5rem; color: var(--muted); }
+.welcome-button { background: linear-gradient(180deg, var(--accent), var(--accent-600)); color:white; padding:.6rem 1rem; border-radius:.6rem; border:none; }
+.welcome-button:hover { transform: translateY(-2px); }

@@ -1,0 +1,3 @@
+.alerts-container { min-height:100vh; background: transparent; }
+.alerts-main { padding:1.25rem; max-width: var(--container-width); margin:0 auto; }
+.alerts-main p { color: var(--muted); }

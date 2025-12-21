@@ -1,0 +1,3 @@
+.page-container { min-height:100vh; background: transparent; }
+.page-main { padding: 1.25rem; max-width: var(--container-width); margin: 0 auto; }
+.page-main p { color: var(--muted); }

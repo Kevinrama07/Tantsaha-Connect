@@ -1,0 +1,6 @@
+.home-container { min-height:100vh; background: transparent; }
+.home-main { padding: 1.5rem; max-width: var(--container-width); margin: 0 auto; font-size: 1.0625rem; }
+
+.home-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); margin-top: 1rem; }
+@media (min-width:900px) { .home-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width:520px) { .home-grid { grid-template-columns: repeat(1, 1fr); } }
